@@ -14,13 +14,11 @@ const BY_REGION = {
   GB: { unitSystem: 'metric', currency: 'GBP' },
   CH: { unitSystem: 'metric', currency: 'CHF' },
   CA: { unitSystem: 'metric', currency: 'CAD' },
-   JP: { unitSystem: 'metric', currency: 'JPY' },
+  JP: { unitSystem: 'metric', currency: 'JPY' },
 }
 
 export function defaultsForLocale(navigatorLanguage) {
   const tag = String(navigatorLanguage || '').replace('_', '-').toUpperCase()
   const region = tag.split('-')[1]
-  if (BY_REGION[region]) return BY_REGION[region]
-  if (lang === 'JA') return BY_REGION.JP
   return BY_REGION[region] || { unitSystem: 'metric', currency: DEFAULT_CURRENCY }
 }
